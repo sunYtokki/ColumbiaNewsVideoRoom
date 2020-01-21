@@ -24,8 +24,8 @@ function importUploadVideos_ver3() {
       var videos = uploads.items.map(function(elem){
         return (elem.contentDetails.upload == null) ? null : elem.contentDetails.upload.videoId })          
       videos = videos.filter(Boolean); //delete null cells
-          
-	  //get statistics of each video
+
+      //get statistics of each video
       videos.forEach(function(video){
         var videoData = YouTube.Videos.list("contentDetails,statistics,snippet", {id: video}).items[0]
         var result = [new Date(videoData.snippet.publishedAt),
@@ -45,7 +45,7 @@ function importUploadVideos_ver3() {
       nextPage = uploads.nextPageToken //update page token 
    }
 	
-	//convert ISO_8601 format to hh:mm:ss
+    //convert ISO_8601 format to hh:mm:ss
     function durationFormatter(duration){
 	    var str = duration.substring(2).replace(/[H]|[M]+/g,":").replace(/S/,"")    
 	    str = ((str.charAt(str.length-1) == ":") ? str + "00" : (str.length <= 2) ? "0:" + str : str).split(":")     
