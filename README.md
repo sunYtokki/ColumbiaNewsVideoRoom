@@ -1,4 +1,4 @@
-<h4>importVideoData.js</h4>
+<h2>importVideoData.js</h2>
 <p>The script imports list of uploaded video of a Youtube channel during the degignaed period of time 
 and writes the data into an active spreadsheet.</p>
 
@@ -10,8 +10,8 @@ and writes the data into an active spreadsheet.</p>
 4. Run the script
 
 
-![](images/Youtube_import_Video.png)
-<a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</a>
+![](images/UploadedVideoSS.png)
+<p href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</p>
 
 <hr>
 
