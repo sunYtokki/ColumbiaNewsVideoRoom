@@ -9,9 +9,8 @@ and writes the data into an active spreadsheet.</p>
 ![](images/youtubedataApi.png)
 4. Run the script
 
-<a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</a>
 ![](images/UploadedVideoSS.png)
-
+<a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</a>
 <hr>
 
 <h4>importVideoData.js</h4>
