@@ -11,7 +11,7 @@ and writes the data into an active spreadsheet.</p>
 
 
 ![](images/UploadedVideoSS.png)
-<p href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</p>
+<a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</a>
 
 <hr>
 
