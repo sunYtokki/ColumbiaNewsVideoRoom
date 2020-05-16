@@ -15,6 +15,12 @@ and writes the data into an active spreadsheet.</p>
 <a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit?usp=sharing">Link to sample spredsheet</a>
 <hr>
 
-<h2>newVideoDetector.js</h2>
-<p>The script find there is a newly updated video in a YouTube Channel and write the metadata of video in an active spread sheet.
+<h2>viewCountTracker.js</h2>
+<p>The script has two main functionality. <br>
+1) YTAPINewVideoDetetor(): Request YouTube API to see if there is a newly updated video in a YouTube Channel and write the metadata of video in an active spread sheet. <br>
+2) dataWriter(): Update the view counts of each video in the list and log view count on 2nd, 7th, 14th, 31th days since the video first posted. <br>
+  
+![](images/viewCountTracker.png)
+<a href="https://docs.google.com/spreadsheets/d/1G987QElFnEt3IbYIj_c3mqp-Bm9JrMBhw39osV0fqEQ/edit#gid=930878025">Link to sample spredsheet</a>
+
 
