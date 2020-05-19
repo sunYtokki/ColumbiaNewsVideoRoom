@@ -65,7 +65,6 @@ function dataWriter() {
     
     //update view count 
     var videoList = YouTube.Videos.list("statistics", {id: videoID}).items[0]
-          Logger.log(row)
     var viewCount = videoList == undefined ? "err" : videoList.statistics.viewCount       
     as.getRange(row+1,8,1,1).setValue(viewCount)
     
@@ -75,6 +74,7 @@ function dataWriter() {
     var daysPast = Math.floor((today.getTime() - postedDate.getTime()) / (1000*60*60*24))    
     var currentView = data[row][7]
 
+    //update sheet
     if(daysPast==2){
       as.getRange(row+1,4).setValue(currentView)
     } 
