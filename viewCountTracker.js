@@ -1,7 +1,7 @@
 function YTAPINewVideoDetetor() {
   //connect with Google sheet
-  var ss = SpreadsheetApp.openById("1mAXAT1z4mtZCjh1PMDWz84vO0xnuLmAsbCjedi9Tllk")
-  var as = ss.getSheetByName("YouTube")
+  var ss = SpreadsheetApp.openById("your spreadsheet ID")
+  var as = ss.getSheetByName("your active sheet name")
   var nextPage = ''  
   
   //get the latest row information
@@ -15,7 +15,7 @@ function YTAPINewVideoDetetor() {
   while(nextPage != null){
     //request data to YouTube API recently uploaded video
     var uploads = YouTube.Activities.list("contentDetails",{channelId: "UChzhFUxUZFAQSJZ_Tp4B1fA", 
-                                                            publishedAfter: lastUpod.toISOString(),
+                                                            publishedAfter: lastUpload.toISOString(),
                                                             maxResults: 1,
                                                             pageToken: nextPage})
     
