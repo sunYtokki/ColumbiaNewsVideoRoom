@@ -55,8 +55,8 @@ function YTAPINewVideoDetetor() {
 
 
 function dataWriter() {
-  var ss = SpreadsheetApp.openById("1mAXAT1z4mtZCjh1PMDWz84vO0xnuLmAsbCjedi9Tllk")
-  var as = ss.getSheetByName("YouTube")
+  var ss = SpreadsheetApp.openById("your spreadsheet ID")
+  var as = ss.getSheetByName("your active sheet name")
 
   var data = as.getDataRange().getValues()
   
