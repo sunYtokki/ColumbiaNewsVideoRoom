@@ -11,7 +11,7 @@ function importUploadVideos_ver3() {
   //set date range
   var startDate = "2019-01-01T00:00:00.000Z"
   var endDate = "2020-01-01T00:00:00.000Z"
-  var maxResults = 50, //YouTube set 50 as maximum per request 
+  var maxResults = 50 //YouTube set 50 as maximum per request 
 
   //get video list and metadata in the date rage
   //each iteration retrives upto maxResults videos' information 
