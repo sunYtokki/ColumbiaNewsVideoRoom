@@ -1,4 +1,4 @@
-function importUploadVideos_ver3() {
+function importUploadVideos {
   //import active spreadsheet
   var ss = SpreadsheetApp.getActiveSpreadsheet()
   var as = ss.getActiveSheet()
