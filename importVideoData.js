@@ -1,4 +1,4 @@
-function importUploadVideos {
+function importUploadVideos() {
   //import active spreadsheet
   var ss = SpreadsheetApp.getActiveSpreadsheet()
   var as = ss.getActiveSheet()
@@ -20,7 +20,7 @@ function importUploadVideos {
                                                             publishedAfter:startDate,
                                                             publishedBefore:endDate,
                                                             maxResults: maxResults,
-                                                            pageToken: nextPae})
+                                                            pageToken: nextPage})
     
     //Filter out activities other than new video uploads eg.add a new playlist to the channel
     var videos = uploads.items.map(function(elem){
