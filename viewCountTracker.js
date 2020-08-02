@@ -1,4 +1,4 @@
-function YTAPINewVideoDetetor() {
+function YTAPINewVideoDetector() {
   //connect with Google sheet
   var ss = SpreadsheetApp.openById("your spreadsheet ID")
   var as = ss.getSheetByName("your active sheet name")
@@ -76,16 +76,16 @@ function dataWriter() {
 
     //update sheet
     if(daysPast==2){
-      as.getRange(row+1,4).setValue(currentView)
+      as.getRange(row+1,3).setValue(currentView)
     } 
     else if(daysPast==7){
-      as.getRange(row+1,5).setValue(currentView)
+      as.getRange(row+1,4).setValue(currentView)
     }
     else if(daysPast==14){
-      as.getRange(row+1,6).setValue(currentView)
+      as.getRange(row+1,5).setValue(currentView)
     }
     else if(daysPast==31){
-      as.getRange(row+1,7).setValue(currentView)
+      as.getRange(row+1,6).setValue(currentView)
     }
     else if(daysPast>31){
       //mark row ready for archiving
