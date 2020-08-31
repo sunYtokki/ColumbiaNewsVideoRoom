@@ -20,11 +20,11 @@ function YTAPINewVideoDetector() {
                                                             pageToken: nextPage})
     
     //Filter other activities (eg.playlistItem) and store information about new video 
-    var videos = uploads.items.map(function(elem){
+    var videos = uploads.items.map(elem => {
       return (elem.contentDetails.upload == null) ? null : elem.contentDetails.upload.videoId })
     videos = videos.filter(Boolean);
     
-    videos.forEach(function(video){
+    videos.forEach(video => {
       var videoData = YouTube.Videos.list("contentDetails,statistics,snippet", {id: video}).items[0]
       var result = [videoData.snippet.title,
                     new Date(videoData.snippet.publishedAt),
