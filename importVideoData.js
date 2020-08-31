@@ -23,12 +23,12 @@ function importUploadVideos() {
                                                             pageToken: nextPage})
     
     //Filter out activities other than new video uploads eg.add a new playlist to the channel
-    var videos = uploads.items.map(function(elem){
+    var videos = uploads.items.map(elem => {
       return (elem.contentDetails.upload == null) ? null : elem.contentDetails.upload.videoId })
     videos = videos.filter(Boolean);
         
     //store metadatas of each video in an array
-    videos.forEach(function(video){
+    videos.forEach(video => {
       var videoData = YouTube.Videos.list("contentDetails,statistics,snippet", {id: video}).items[0]
       var result = [new Date(videoData.snippet.publishedAt),
                     durationFormatter(videoData.contentDetails.duration),
