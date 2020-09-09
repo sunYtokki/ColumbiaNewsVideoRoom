@@ -7,24 +7,24 @@ function YTAPINewVideoDetector() {
   //get the latest row information
   var lastRow = as.getLastRow()
   
-  //sort the sheet by date and get neccessray information for comparison
+  //get the latest upload date on the sheet
   as.sort(2, true)
   var lastUpload = new Date(as.getRange(lastRow, 2).getValue())
   var videoIDs=as.getRange("J2:J"+lastRow).getValues()
 
   while(nextPage != null){
-    //request data to YouTube API recently uploaded video
+    //request data to YouTube API recently uploaded video since the last time script excuted
     var uploads = YouTube.Activities.list("contentDetails",{channelId: "UChzhFUxUZFAQSJZ_Tp4B1fA", 
                                                             publishedAfter: lastUpload.toISOString(),
                                                             maxResults: 1,
                                                             pageToken: nextPage})
     
     //Filter other activities (eg.playlistItem) and store information about new video 
-    var videos = uploads.items.map(elem => {
+    var videos = uploads.items.map( elem => {
       return (elem.contentDetails.upload == null) ? null : elem.contentDetails.upload.videoId })
     videos = videos.filter(Boolean);
     
-    videos.forEach(video => {
+    videos.forEach( video => {
       var videoData = YouTube.Videos.list("contentDetails,statistics,snippet", {id: video}).items[0]
       var result = [videoData.snippet.title,
                     new Date(videoData.snippet.publishedAt),
@@ -33,8 +33,11 @@ function YTAPINewVideoDetector() {
                     videoData.statistics.viewCount,
                     "https://www.youtube.com/watch?v="+video,
                     video]
-        
-      //make sure the data doesn't exist in the sheet and print out the data to the sheet
+
+      console.log(result)
+      console.log("converted duration: ", durationFormatter(videoData.contentDetails.duration))
+      
+      //Handle duplicate and print out the data to the sheet
       if(result[1].getTime() != lastUpload.getTime() && 
          !videoIDs.hasOwnProperty(result[6])){        
         as.getRange(as.getLastRow()+1,1,1,result.length).setValues([result])
@@ -42,8 +45,7 @@ function YTAPINewVideoDetector() {
     })
     nextPage = uploads.nextPageToken
  }
-
-    
+  
   function durationFormatter(duration){
     var str = duration.substring(2).replace(/[H]|[M]+/g,":").replace(/S/,"")    
     str = ((str.charAt(str.length-1) == ":") ? str + "00" : (str.length <= 2) ? "0:" + str : str).split(":")     
