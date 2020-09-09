@@ -1,7 +1,13 @@
+/*
+The script reads Youtube URL and convert it to YouTube video ID then
+requests statistic data to YouTube Data API to update current view count
+The script is compatible with Google Spread Sheet.
+*/
+
 function ViewCountUpdate() {
 //connect with Google sheet
-  var ss = SpreadsheetApp.openById("1ImbE-cf643GGUP16o3RXkFMjIwMdj7ESvLWMKUHPqdA")
-  var as = ss.getSheetByName("Youtube") 
+  var ss = SpreadsheetApp.openById("<SS ID>")
+  var as = ss.getSheetByName("<active SS name>") 
   var lastRow = as.getLastRow()
   var nextPage = ''  
   //var videoIDs=as.getRange("J2:J"+lastRow).getValues()
@@ -32,6 +38,7 @@ function ViewCountUpdate() {
        as.getRange(i+2, 8, 1, 1).setValue(views[i])
    }
 
+  // The original code of this function is from https://gist.github.com/takien/4077195
   function YouTubeGetID(url){
     var ID = '';
     url = url.replace(/(>|<)/gi,'').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
